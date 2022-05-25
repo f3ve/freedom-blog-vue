@@ -1,12 +1,25 @@
+<script setup>
+import FButton from './components/FButton.vue';
+
+function handleClick() {
+  console.log('clicked that button');
+}
+</script>
+
 <template>
-  <nav>
+  <!-- <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
-  </nav>
+  </nav> -->
+  <f-button @click="handleClick" text="Click me"></f-button>
   <router-view />
 </template>
 
 <style>
+body {
+  font-size: 16px;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
