@@ -4,10 +4,16 @@ defineProps(['href', 'to']);
 </script>
 
 <template>
-  <a :href="href" v-if="href">
+  <a v-if="href" :href="href" class="f-link">
     <slot />
   </a>
-  <<router-link v-if="to" :to="to"></router-link>
+  <router-link v-if="to" :to="to" class="f-link">
+    <slot />
+  </router-link>
 </template>
 
-<style scoped></style>
+<style scoped>
+.f-link {
+  color: inherit;
+}
+</style>
