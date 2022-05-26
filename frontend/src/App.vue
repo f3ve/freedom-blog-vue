@@ -5,12 +5,7 @@ import { useCounterStore } from './stores/custom';
 import { storeToRefs } from 'pinia';
 
 const store = useCounterStore();
-const { counter } = storeToRefs(store);
-
-function handleClick() {
-  // console.log('clicked that button');
-  store.incrementCount();
-}
+const { counter, name, isAdmin } = storeToRefs(store);
 </script>
 
 <template>
@@ -18,7 +13,8 @@ function handleClick() {
     <f-link to="/">Home</f-link>
     <f-link to="/about">About</f-link>
   </nav>
-  <f-button @click="handleClick">Click me</f-button>
+  <h1>{{ name }}</h1>
+  <f-button @click="store.incrementCount" v-if="isAdmin">Click me</f-button>
   <p>{{ counter }}</p>
   <router-view />
 </template>
