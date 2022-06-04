@@ -3,6 +3,5 @@ function packResponse(res, body, status = 200) {
 }
 
 module.exports = {
-  packServerError,
   packResponse,
 };
