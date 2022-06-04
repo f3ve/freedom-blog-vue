@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 const apiErrorHandler = require('./error/apiErrorHandler');
+const useRoutes = require('./routes/useRoutes');
 const { NODE_ENV } = require('./config');
 
 const app = express();
@@ -15,9 +16,7 @@ app.use(morgan(loggingMode));
 app.use(helmet());
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
-});
+useRoutes(app);
 
 app.use(apiErrorHandler);
 
