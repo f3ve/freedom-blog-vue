@@ -3,6 +3,16 @@ import FButton from './components/FButton.vue';
 import FLink from './components/FLink.vue';
 import { useCounterStore } from './stores/custom';
 import { storeToRefs } from 'pinia';
+import { getRoot } from './blogApi/requests';
+
+async function handleGetRequest() {
+  try {
+    const res = await getRoot();
+    console.log(res);
+  } catch (err) {
+    console.error(err.message);
+  }
+}
 
 const store = useCounterStore();
 const { counter, name, isAdmin } = storeToRefs(store);
@@ -15,6 +25,7 @@ const { counter, name, isAdmin } = storeToRefs(store);
   </nav>
   <h1>{{ name }}</h1>
   <f-button @click="store.incrementCount" v-if="isAdmin">Click me</f-button>
+  <f-button @click="handleGetRequest">Get root</f-button>
   <p>{{ counter }}</p>
   <router-view />
 </template>
