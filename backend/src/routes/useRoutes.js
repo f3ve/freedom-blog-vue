@@ -4,7 +4,7 @@ const userRouter = require('./user/userRouter');
 
 function useRoutes(app) {
   app.use('/', indexRouter);
-  app.use(`${API_URL}/users/`, userRouter);
+  app.use(`${API_URL}/users`, userRouter);
 }
 
 module.exports = useRoutes;
